@@ -1,7 +1,6 @@
-# Changelog
+# Commit 0004
 
-## Commit 0003 - Manifest Model
-
-- Added manifest dataclasses
-- Added JSON serialization helpers
-- Added unit test
+- Engineering manifest
+- MSC value object
+- Provenance
+- Validation
