@@ -1,16 +1,30 @@
 from mazdavp.builder import ManifestBuilder
 
-b = ManifestBuilder()
-b.set_model_code("ABCD")
-b.set_spec_code("123")
-b.set_model_year("2026")
-b.set_market("EU")
-b.set_trim("Homura")
-b.set_colour("Soul Red")
-b.add_option("PK1")
+builder = ManifestBuilder()
 
-manifest = b.build()
+builder.set("model_code", "ABCD", "test")
+builder.set("spec_code", "123", "test")
+builder.set("model_year", "2026", "test")
+builder.set("market", "EU", "test")
+builder.set("trim", "Homura", "test")
+builder.set("colour", "Soul Red", "test")
+
+builder.add_option("PK1")
+
+manifest = builder.build()
 
 assert manifest.vehicle.msc.value == "ABCD123"
+assert manifest.vehicle.trim == "Homura"
 assert manifest.vehicle.options == ["PK1"]
-print("ManifestBuilder test passed")
+
+conflict = ManifestBuilder()
+
+conflict.set("trim", "Homura", "OrderForm")
+
+try:
+    conflict.set("trim", "Takumi", "Maya")
+    raise AssertionError("Expected ManifestConflictError")
+except Exception:
+    pass
+
+print("All tests passed.")
