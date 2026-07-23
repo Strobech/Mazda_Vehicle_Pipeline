@@ -1,5 +1,4 @@
-# Commit 0005
+# Commit 0006
 
-- Added validation engine
-- Added validation report
-- Added validator tests
+- Added ManifestBuilder
+- Added builder tests
