@@ -1,1 +1,1 @@
-Extract into repository, review, commit and push.
+Extract into repository, review, commit, and push.
