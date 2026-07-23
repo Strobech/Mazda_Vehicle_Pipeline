@@ -1,1 +1,1 @@
-Commit 0002 - Create Python package skeleton
+Commit 0003 - Add manifest data model

@@ -1,5 +1,7 @@
 # Changelog
 
-## Commit 0002 - Project Skeleton
+## Commit 0003 - Manifest Model
 
-- Created initial package structure.
+- Added manifest dataclasses
+- Added JSON serialization helpers
+- Added unit test
