@@ -1,9 +1,10 @@
 import json
+from pathlib import Path
 
 from mazdavp.manifest import MSC, Vehicle, VehicleManifest
 
 
-def load_manifest(path: str) -> VehicleManifest:
+def load_manifest(path: str | Path) -> VehicleManifest:
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
 

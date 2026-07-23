@@ -1,9 +1,13 @@
 import json
+from pathlib import Path
 
 from mazdavp.manifest import VehicleManifest
 
 
-def save_manifest(manifest: VehicleManifest, path: str) -> None:
+def save_manifest(
+    manifest: VehicleManifest,
+    path: str | Path,
+) -> None:
     vehicle = manifest.vehicle
 
     data = {

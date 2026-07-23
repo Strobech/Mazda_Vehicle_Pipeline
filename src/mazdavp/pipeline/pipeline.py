@@ -1,8 +1,12 @@
+
+
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any
 
 from mazdavp.builder import ManifestBuilder
+from mazdavp.io import save_manifest
 from mazdavp.manifest import VehicleManifest
 
 from .import_source import ImportSource
@@ -30,3 +34,10 @@ class Pipeline:
 
     def build(self) -> VehicleManifest:
         return self._builder.build()
+
+    def save(self, path: str | Path) -> None:
+        """
+        Build and save the current manifest.
+        """
+        save_manifest(self.build(), path)
+    
