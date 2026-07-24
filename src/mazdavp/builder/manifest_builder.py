@@ -5,6 +5,7 @@ from typing import Any
 
 from mazdavp.manifest import MSC, Vehicle, VehicleManifest
 
+from .fields import VALID_FIELDS
 
 class ManifestConflictError(Exception):
     """Raised when two different values are assigned to the same field."""
@@ -33,6 +34,8 @@ class ManifestBuilder:
         If the field already has a different value,
         a ManifestConflictError is raised.
         """
+        if field not in VALID_FIELDS:
+            raise ValueError(f"Unknown field: {field}")
 
         current = self._fields.get(field)
 
